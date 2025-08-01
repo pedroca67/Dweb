@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css" />
+    <title>Inscrição para o Concurso de Fotografia</title>
+</head>
+
+<body>
+    <h1>Inscrição para o Concurso de Fotografia</h1>
+    <form action="#" method="post">
+        <h3>Nome Completo:</h3>
+        <input type="text" id="inome" name="nome">
+
+        <h3>Email:</h3>
+        <input type="email" id="iemail" name="email">
+
+        <fieldset>
+            <legend>Categoria:</legend>
+
+            <input type="radio" id="paisagem" name="categoria" value="Paisagem">
+            <label for="paisagem">Paisagem</label><br>
+
+            <input type="radio" id="retrato" name="categoria" value="Retrato">
+            <label for="retrato">Retrato</label><br>
+
+            <input type="radio" id="natureza" name="categoria" value="Natureza">
+            <label for="natureza">Natureza</label><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Tipo do Arquivo:</legend>
+            <select id="iFormato" name="formato_arquivo">
+                <option value="JPG">JPG</option>
+                <option value="JPEG">JPEG</option>
+                <option value="PNG">PNG</option>
+                <option value="TIFF">TIFF</option>
+            </select>
+        </fieldset>
+
+        <h3>Data da Foto:</h3>
+        <input type="date" name="data_foto" id="idata" max="2025-07-30">
+
+        <h3>Descrição da Fotografia:</h3>
+        <textarea id="idesc" name="desc" rows="10" cols="30"></textarea>
+        <br>
+        <input type="checkbox" id="confirmar" name="confirmar" value="Sim">
+        <label for="confirmar">Desejo receber notificações sobre futuros concursos</label><br>
+
+        <h3>Enviar Arquivo:</h3>
+        <div class="file-container">
+            <input type="file" id="iarquivo" name="arquivo" accept=".jpg, .jpeg, .png, .tiff">
+        </div>
+
+
+        <button type="submit">Enviar</button>
+        <br><br>
+
+        <output id="mensagem-confirmacao"></output>
+
+    </form>
+    <script>
+        const form = document.querySelector("form");
+        const output = document.getElementById("mensagem-confirmacao");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const nome = document.getElementById("inome").value;
+
+            output.textContent = `Obrigado, ${nome || 'participante'}! Sua inscrição foi realizada com sucesso.`;
+            output.style.color = "green";
+            output.style.fontWeight = "bold";
+            output.style.marginTop = "20px";
+        });
+    </script>
+
+
+
+</body>
+
+</html>
